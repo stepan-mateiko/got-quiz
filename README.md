@@ -18,7 +18,7 @@ A web-based quiz game that tests your knowledge of the *Game of Thrones* univers
 
 ## Demo
 
-<img width="1203" height="759" alt="image" src="https://github.com/user-attachments/assets/cb6f8e0f-28e1-497c-ad09-bf2c5385b2ff" />
+<img width="1262" height="718" alt="image" src="https://github.com/user-attachments/assets/b1ba1922-4587-4396-9a19-b24b4ef05748" />
 
 
 ---
