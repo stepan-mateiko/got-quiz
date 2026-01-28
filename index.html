@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>A Game of Thrones Quiz</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik&family=Fondamento&family=Aclonica&family=Berkshire+Swash&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <main id="main-content">
+      <!-- START SCREEN -->
+      <section class="start_btn" aria-labelledby="start-quiz-title">
+        <h1 id="start-quiz-title" class="visually-hidden">
+          Game of Thrones Quiz
+        </h1>
+
+        <button type="button" aria-describedby="start-quiz-desc">
+          Night gathers and my Quiz begins...
+        </button>
+
+        <p id="start-quiz-desc" class="visually-hidden">
+          Press this button to start the Game of Thrones quiz.
+        </p>
+      </section>
+
+      <!-- INFO / RULES DIALOG -->
+      <section
+        class="info_box"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="rules-title"
+        aria-describedby="rules-list"
+      >
+        <header class="info_title">
+          <h2 id="rules-title">Rules of the Quiz</h2>
+        </header>
+
+        <div id="rules-list" class="info_list">
+          <p class="info">
+            <strong>1.</strong> You will have only <span>15 seconds</span> for
+            each question
+          </p>
+          <p class="info">
+            <strong>2.</strong> Once you select your answer, you can't reselect
+          </p>
+          <p class="info">
+            <strong>3.</strong> You can't select any option once time goes off
+          </p>
+          <p class="info">
+            <strong>4.</strong> You can't exit from the Quiz while you are
+            playing
+          </p>
+          <p class="info">
+            <strong>5.</strong> You will get points on the basis of your answers
+          </p>
+        </div>
+
+        <footer class="buttons">
+          <button type="button" class="quit">Exit</button>
+          <button type="button" class="restart">Continue</button>
+        </footer>
+      </section>
+
+      <!-- QUIZ -->
+      <section class="quiz_box" aria-labelledby="quiz-title" aria-live="polite">
+        <header>
+          <h2 id="quiz-title" class="title">Game of Thrones Quiz</h2>
+
+          <div class="timer" role="timer" aria-live="polite" aria-atomic="true">
+            <span class="time_text">Time left</span>
+            <span class="timer_sec" aria-label="Seconds remaining"> 15 </span>
+          </div>
+
+          <div class="time_line" aria-hidden="true"></div>
+        </header>
+
+        <section aria-labelledby="question-title">
+          <h3 id="question-title" class="que_text" tabindex="-1">
+            <!-- Question injected by JS -->
+          </h3>
+
+          <ul class="option_list" role="listbox" aria-label="Answer options">
+            <!-- Options injected by JS -->
+          </ul>
+        </section>
+
+        <footer>
+          <div class="total_que" aria-live="polite">
+            <!-- Question count injected by JS -->
+          </div>
+
+          <button type="button" class="next_btn">Next Question</button>
+        </footer>
+      </section>
+
+      <!-- RESULT -->
+      <section
+        class="result_box"
+        role="region"
+        aria-labelledby="result-title"
+        aria-live="polite"
+      >
+        <header>
+          <h2 id="result-title" class="complete_text">
+            You've finished this Quiz
+          </h2>
+        </header>
+
+        <figure class="icon">
+          <img
+            src="img/crown.jpg"
+            alt="Golden crown symbolizing the quiz result"
+            id="crown"
+          />
+        </figure>
+
+        <p class="score_text">
+          and sorry, You got only
+          <span aria-label="Correct answers">2</span>
+          out of
+          <span aria-label="Total questions">5</span>
+        </p>
+
+        <footer class="buttons">
+          <button type="button" class="restart">Repeat Quiz</button>
+          <button type="button" class="quit">Exit</button>
+        </footer>
+      </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="js/questions.js" defer></script>
+    <script src="js/script.js" defer></script>
+  </body>
+</html>
