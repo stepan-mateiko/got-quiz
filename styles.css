@@ -5,6 +5,19 @@
   font-family: "Berkshire Swash", sans-serif;
 }
 
+/* Accessible helper */
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+}
+
 body {
   background-image: url(img/002.jpg);
   background-size: cover;
@@ -63,6 +76,14 @@ body {
   border-radius: 5px;
   background: lavender;
   cursor: pointer;
+}
+.start_btn button:focus-visible,
+.info_box .buttons button:focus-visible,
+.result_box .buttons button:focus-visible,
+footer .next_btn:focus-visible,
+section .option_list .option:focus-visible {
+  outline: 3px solid #1b1b1b;
+  outline-offset: 2px;
 }
 
 .info_box {

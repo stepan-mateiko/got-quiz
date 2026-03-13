@@ -27,22 +27,28 @@ let widthValue = 0;
 let timer;
 let timerLine;
 let quizQuestions;
+let lastFocusedElement = null;
+let dialogTrapHandler = null;
 
 // EVENT LISTENERS
 
 // Start quiz
 startBtn.addEventListener("click", () => {
-  infoBox.classList.add("activeInfo");
+  lastFocusedElement = document.activeElement;
   startSection.classList.add("activeStart");
+  openInfoDialog();
 });
 
 // Exit info box
-exitBtn.addEventListener("click", () => infoBox.classList.remove("activeInfo"));
+exitBtn.addEventListener("click", closeInfoDialog);
 
 // Continue to quiz
 continueBtn.addEventListener("click", () => {
-  infoBox.classList.remove("activeInfo");
+  closeInfoDialog(false);
+  setSectionState(startSection, false);
   quizBox.classList.add("activeQuiz");
+  setSectionState(quizBox, true);
+  setSectionState(resultBox, false);
   showQuestion(currentQuestion);
   updateQuestionCounter(questionNumber);
   startTimer(timeValue);
@@ -89,17 +95,13 @@ function showQuestion(index) {
   questionText.innerHTML = `<span>${q.question}</span>`;
 
   optionList.innerHTML = q.options
-    .map((opt) => `<li class="option" role="option" tabindex="0">${opt}</li>`)
+    .map(
+      (opt, i) =>
+        `<li class="option" role="option" tabindex="${i === 0 ? "0" : "-1"}" aria-selected="false">${opt}</li>`,
+    )
     .join("");
 
-  // Add click & keyboard listeners
-  const options = optionList.querySelectorAll(".option");
-  options.forEach((opt) => {
-    opt.addEventListener("click", () => optionSelected(opt));
-    opt.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") optionSelected(opt);
-    });
-  });
+  bindOptionListHandlers();
 
   questionText.focus();
   nextBtn.style.display = "none";
@@ -134,7 +136,12 @@ function optionSelected(selectedOption) {
   }
 
   // Disable all options
-  options.forEach((opt) => opt.classList.add("disabled"));
+  options.forEach((opt) => {
+    opt.classList.add("disabled");
+    opt.setAttribute("aria-disabled", "true");
+    opt.setAttribute("aria-selected", opt === selectedOption ? "true" : "false");
+    opt.setAttribute("tabindex", "-1");
+  });
 
   nextBtn.style.display = "block";
 }
@@ -142,6 +149,8 @@ function optionSelected(selectedOption) {
 function showResultBox() {
   quizBox.classList.remove("activeQuiz");
   resultBox.classList.add("activeResult");
+  setSectionState(quizBox, false);
+  setSectionState(resultBox, true);
 
   const scoreText = resultBox.querySelector(".score_text");
   const scoreIcon = resultBox.querySelector(".icon");
@@ -197,8 +206,13 @@ function autoSelectCorrect() {
     if (opt.textContent === correctAnswer) {
       opt.classList.add("correct");
       opt.innerHTML += `<span class="icon tick"><i class="fas fa-check"></i></span>`;
+      opt.setAttribute("aria-selected", "true");
+    } else {
+      opt.setAttribute("aria-selected", "false");
     }
     opt.classList.add("disabled");
+    opt.setAttribute("aria-disabled", "true");
+    opt.setAttribute("tabindex", "-1");
   });
 }
 
@@ -220,6 +234,8 @@ function resetTimers() {
 function restartQuiz() {
   quizBox.classList.add("activeQuiz");
   resultBox.classList.remove("activeResult");
+  setSectionState(quizBox, true);
+  setSectionState(resultBox, false);
 
   currentQuestion = 0;
   questionNumber = 1;
@@ -231,4 +247,107 @@ function restartQuiz() {
   showQuestion(currentQuestion);
   updateQuestionCounter(questionNumber);
   resetTimers();
+}
+
+// ACCESSIBILITY HELPERS
+function setSectionState(section, isActive) {
+  if (isActive) {
+    section.removeAttribute("aria-hidden");
+    section.removeAttribute("inert");
+  } else {
+    section.setAttribute("aria-hidden", "true");
+    section.setAttribute("inert", "");
+  }
+}
+
+function openInfoDialog() {
+  infoBox.classList.add("activeInfo");
+  setSectionState(infoBox, true);
+  setSectionState(startSection, false);
+  setSectionState(quizBox, false);
+  setSectionState(resultBox, false);
+  continueBtn.focus();
+  trapFocus(infoBox);
+}
+
+function closeInfoDialog(restoreFocus = true) {
+  infoBox.classList.remove("activeInfo");
+  setSectionState(infoBox, false);
+  setSectionState(startSection, true);
+  removeTrapFocus();
+  if (restoreFocus && lastFocusedElement) lastFocusedElement.focus();
+}
+
+function trapFocus(container) {
+  removeTrapFocus();
+  dialogTrapHandler = (e) => {
+    if (e.key === "Escape") {
+      e.preventDefault();
+      closeInfoDialog(true);
+      return;
+    }
+    if (e.key !== "Tab") return;
+    const focusables = container.querySelectorAll(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
+    );
+    if (!focusables.length) return;
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  };
+  document.addEventListener("keydown", dialogTrapHandler, true);
+}
+
+function removeTrapFocus() {
+  if (!dialogTrapHandler) return;
+  document.removeEventListener("keydown", dialogTrapHandler, true);
+  dialogTrapHandler = null;
+}
+
+function bindOptionListHandlers() {
+  if (!optionList.dataset.bound) {
+    optionList.addEventListener("click", (e) => {
+      const option = e.target.closest(".option");
+      if (!option || option.classList.contains("disabled")) return;
+      optionSelected(option);
+    });
+
+    optionList.addEventListener("keydown", (e) => {
+      const options = Array.from(optionList.querySelectorAll(".option"));
+      if (!options.length) return;
+      const active =
+        document.activeElement.closest(".option") ||
+        optionList.querySelector('.option[tabindex="0"]') ||
+        options[0];
+      const currentIndex = Math.max(0, options.indexOf(active));
+
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        if (!active.classList.contains("disabled")) optionSelected(active);
+        return;
+      }
+
+      let nextIndex = currentIndex;
+      if (e.key === "ArrowDown") nextIndex = (currentIndex + 1) % options.length;
+      if (e.key === "ArrowUp")
+        nextIndex = (currentIndex - 1 + options.length) % options.length;
+      if (e.key === "Home") nextIndex = 0;
+      if (e.key === "End") nextIndex = options.length - 1;
+
+      if (nextIndex !== currentIndex) {
+        e.preventDefault();
+        options.forEach((opt, i) => {
+          opt.setAttribute("tabindex", i === nextIndex ? "0" : "-1");
+        });
+        options[nextIndex].focus();
+      }
+    });
+    optionList.dataset.bound = "true";
+  }
 }
