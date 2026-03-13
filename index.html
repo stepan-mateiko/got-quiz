@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Rubik&family=Fondamento&family=Aclonica&family=Berkshire+Swash&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&family=Noto+Serif:wght@400;600&display=swap"
       rel="stylesheet"
     />
 
@@ -27,6 +27,27 @@
 
   <body>
     <main id="main-content">
+      <!-- LANGUAGE SWITCHER -->
+      <nav class="lang_switcher" aria-label="Language switcher">
+        <span class="lang_label">Language</span>
+        <button
+          type="button"
+          class="lang_btn"
+          data-lang="en"
+          aria-pressed="true"
+        >
+          EN
+        </button>
+        <button
+          type="button"
+          class="lang_btn"
+          data-lang="ua"
+          aria-pressed="false"
+        >
+          UA
+        </button>
+      </nav>
+
       <!-- START SCREEN -->
       <section class="start_btn" aria-labelledby="start-quiz-title">
         <h1 id="start-quiz-title" class="visually-hidden">
@@ -56,25 +77,15 @@
           <h2 id="rules-title">Rules of the Quiz</h2>
         </header>
 
-        <div id="rules-list" class="info_list">
-          <p class="info">
-            <strong>1.</strong> You will have only <span>15 seconds</span> for
-            each question
-          </p>
-          <p class="info">
-            <strong>2.</strong> Once you select your answer, you can't reselect
-          </p>
-          <p class="info">
-            <strong>3.</strong> You can't select any option once time goes off
-          </p>
-          <p class="info">
-            <strong>4.</strong> You can't exit from the Quiz while you are
-            playing
-          </p>
-          <p class="info">
-            <strong>5.</strong> You will get points on the basis of your answers
-          </p>
-        </div>
+        <ol id="rules-list" class="info_list">
+          <li class="info">You will have only 15 seconds for each question</li>
+          <li class="info">Once you select your answer, you can't reselect</li>
+          <li class="info">You can't select any option once time goes off</li>
+          <li class="info">
+            You can't exit from the Quiz while you are playing
+          </li>
+          <li class="info">You will get points on the basis of your answers</li>
+        </ol>
 
         <footer class="buttons">
           <button type="button" class="quit">Exit</button>
@@ -158,7 +169,6 @@
     </main>
 
     <!-- Scripts -->
-    <script src="js/questions.js" defer></script>
     <script src="js/script.js" defer></script>
   </body>
 </html>

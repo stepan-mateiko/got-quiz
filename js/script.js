@@ -13,6 +13,9 @@ const nextBtn = quizBox.querySelector(".next_btn");
 const timeCountEl = quizBox.querySelector(".timer .timer_sec");
 const timeTextEl = quizBox.querySelector(".timer .time_text");
 const timeLine = quizBox.querySelector(".time_line");
+const languageSwitcher = document.querySelector(".lang_switcher");
+const languageLabel = document.querySelector(".lang_label");
+const languageButtons = document.querySelectorAll(".lang_btn");
 
 const resultBox = document.querySelector(".result_box");
 const restartQuizBtn = resultBox.querySelector(".buttons .restart");
@@ -29,6 +32,8 @@ let timerLine;
 let quizQuestions;
 let lastFocusedElement = null;
 let dialogTrapHandler = null;
+let i18nData = null;
+let currentLang = "en";
 
 // EVENT LISTENERS
 
@@ -88,7 +93,8 @@ function shuffleArray(array) {
   return arr;
 }
 
-quizQuestions = shuffleArray(questions).slice(0, 12);
+startBtn.setAttribute("disabled", "true");
+initI18n();
 
 function showQuestion(index) {
   const q = quizQuestions[index];
@@ -116,7 +122,7 @@ function optionSelected(selectedOption) {
   const options = optionList.querySelectorAll(".option");
 
   if (currentQuestion === 11) {
-    nextBtn.innerHTML = "Show results";
+    nextBtn.innerHTML = getUiText("showResults");
   }
 
   if (selectedOption.textContent === correctAnswer) {
@@ -159,17 +165,17 @@ function showResultBox() {
   let imgSrc = "img/crow.jpg";
 
   if (userScore > 9) {
-    message = `You got <span>${userScore}</span> out of <span>12</span>. <br> Proved to be the true heir of the Iron Throne!`;
+    message = `${getUiText("scorePrefix")} <span>${userScore}</span> ${getUiText("scoreOutOf")} <span>12</span>. <br> ${getUiText("scoreSuffixHigh")}`;
     imgSrc = "img/crown.jpg";
   } else if (userScore > 5) {
-    message = `You got <span>${userScore}</span> out of <span>12</span>. <br> Deserved to be the lord of a Great House.`;
+    message = `${getUiText("scorePrefix")} <span>${userScore}</span> ${getUiText("scoreOutOf")} <span>12</span>. <br> ${getUiText("scoreSuffixMid")}`;
     imgSrc = "img/lannister.jpg";
   } else {
-    message = `You got <span>${userScore}</span> out of <span>12</span>. <br> You will be sent to the Night's Watch.`;
+    message = `${getUiText("scorePrefix")} <span>${userScore}</span> ${getUiText("scoreOutOf")} <span>12</span>. <br> ${getUiText("scoreSuffixLow")}`;
   }
 
   scoreText.innerHTML = message;
-  scoreIcon.innerHTML = `<img src="${imgSrc}" alt="Result icon" id="crown">`;
+  scoreIcon.innerHTML = `<img src="${imgSrc}" alt="${getUiText("resultIconAlt")}" id="crown">`;
 }
 
 function startTimer(duration) {
@@ -182,7 +188,7 @@ function startTimer(duration) {
     if (time < 0) {
       clearInterval(timer);
       timeCountEl.textContent = "00";
-      timeTextEl.textContent = "Time Off!";
+      timeTextEl.textContent = getUiText("timeOff");
       autoSelectCorrect();
       nextBtn.style.display = "block";
     }
@@ -218,7 +224,7 @@ function autoSelectCorrect() {
 
 function updateQuestionCounter(index) {
   const counterEl = quizBox.querySelector(".total_que");
-  counterEl.innerHTML = `<span><p>${index}</p>Of <p>12</p> Questions</span>`;
+  counterEl.innerHTML = `<span><p>${index}</p>${getUiText("ofLabel")} <p>12</p> ${getUiText("questionsLabel")}</span>`;
 }
 
 function resetTimers() {
@@ -227,7 +233,7 @@ function resetTimers() {
   startTimer(timeValue);
   startTimerLine(widthValue);
   nextBtn.style.display = "none";
-  timeTextEl.textContent = "Time Left";
+  timeTextEl.textContent = getUiText("timeLeft");
 }
 
 // Restart quiz logic
@@ -242,11 +248,108 @@ function restartQuiz() {
   userScore = 0;
   timeValue = 15;
   widthValue = 0;
-  quizQuestions = shuffleArray(questions).slice(0, 12);
+  quizQuestions = shuffleArray(i18nData[currentLang].questions).slice(0, 12);
 
   showQuestion(currentQuestion);
   updateQuestionCounter(questionNumber);
   resetTimers();
+}
+
+function initI18n() {
+  fetch("js/i18n.json")
+    .then((res) => res.json())
+    .then((data) => {
+      i18nData = data;
+      const saved = localStorage.getItem("quizLang");
+      const browserLang = navigator.language.toLowerCase().startsWith("uk")
+        ? "ua"
+        : "en";
+      currentLang = saved && data[saved] ? saved : browserLang;
+      applyLanguage(currentLang, true);
+      startBtn.removeAttribute("disabled");
+
+      languageButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const lang = btn.dataset.lang;
+          if (lang === currentLang) return;
+          applyLanguage(lang, false);
+        });
+      });
+    })
+    .catch(() => {
+      // Fallback if JSON fails to load
+      currentLang = "en";
+      startBtn.removeAttribute("disabled");
+    });
+}
+
+function getUiText(key) {
+  if (!i18nData || !i18nData[currentLang]) return "";
+  return i18nData[currentLang].ui[key] || "";
+}
+
+function applyLanguage(lang, initialLoad) {
+  currentLang = lang;
+  localStorage.setItem("quizLang", lang);
+
+  languageButtons.forEach((btn) => {
+    btn.setAttribute("aria-pressed", btn.dataset.lang === lang ? "true" : "false");
+  });
+
+  languageLabel.textContent = getUiText("languageLabel");
+  languageButtons[0].textContent = getUiText("languageEn");
+  languageButtons[1].textContent = getUiText("languageUa");
+
+  document.querySelector("#start-quiz-title").textContent =
+    getUiText("startTitle");
+  startBtn.textContent = getUiText("startButton");
+  document.querySelector("#start-quiz-desc").textContent =
+    getUiText("startDesc");
+
+  document.querySelector("#rules-title").textContent = getUiText("rulesTitle");
+  const rulesList = document.querySelectorAll("#rules-list .info");
+  const rules = getUiText("rules");
+  rulesList.forEach((item, i) => {
+    item.textContent = rules[i] || "";
+  });
+
+  exitBtn.textContent = getUiText("exit");
+  continueBtn.textContent = getUiText("continue");
+  document.querySelector("#quiz-title").textContent = getUiText("quizTitle");
+  timeTextEl.textContent = getUiText("timeLeft");
+  timeCountEl.setAttribute("aria-label", getUiText("secondsRemaining"));
+  optionList.setAttribute("aria-label", getUiText("answerOptions"));
+  nextBtn.textContent = getUiText("nextQuestion");
+  document.querySelector("#result-title").textContent =
+    getUiText("resultTitle");
+  restartQuizBtn.textContent = getUiText("repeatQuiz");
+  quitQuizBtn.textContent = getUiText("exit");
+
+  if (!initialLoad) {
+    resetToStartScreen();
+  }
+
+  quizQuestions = shuffleArray(i18nData[currentLang].questions).slice(0, 12);
+}
+
+function resetToStartScreen() {
+  clearInterval(timer);
+  clearInterval(timerLine);
+  quizBox.classList.remove("activeQuiz");
+  resultBox.classList.remove("activeResult");
+  infoBox.classList.remove("activeInfo");
+  startSection.classList.remove("activeStart");
+  setSectionState(startSection, true);
+  setSectionState(infoBox, false);
+  setSectionState(quizBox, false);
+  setSectionState(resultBox, false);
+  currentQuestion = 0;
+  questionNumber = 1;
+  userScore = 0;
+  timeValue = 15;
+  widthValue = 0;
+  nextBtn.style.display = "none";
+  timeTextEl.textContent = getUiText("timeLeft");
 }
 
 // ACCESSIBILITY HELPERS

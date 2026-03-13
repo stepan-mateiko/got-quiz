@@ -1,0 +1,670 @@
+{
+  "en": {
+    "ui": {
+      "languageLabel": "Language",
+      "languageEn": "EN",
+      "languageUa": "UA",
+      "startTitle": "Game of Thrones Quiz",
+      "startButton": "Night gathers and my Quiz begins...",
+      "startDesc": "Press this button to start the Game of Thrones quiz.",
+      "rulesTitle": "Rules of the Quiz",
+      "rules": [
+        "You will have only 15 seconds for each question",
+        "Once you select your answer, you can't reselect",
+        "You can't select any option once time goes off",
+        "You can't exit from the Quiz while you are playing",
+        "You will get points on the basis of your answers"
+      ],
+      "exit": "Exit",
+      "continue": "Continue",
+      "quizTitle": "Game of Thrones Quiz",
+      "timeLeft": "Time left",
+      "secondsRemaining": "Seconds remaining",
+      "answerOptions": "Answer options",
+      "nextQuestion": "Next Question",
+      "showResults": "Show results",
+      "resultTitle": "You've finished this Quiz",
+      "scorePrefix": "You got",
+      "scoreOutOf": "out of",
+      "scoreSuffixHigh": "Proved to be the true heir of the Iron Throne!",
+      "scoreSuffixMid": "Deserved to be the lord of a Great House.",
+      "scoreSuffixLow": "You will be sent to the Night's Watch.",
+      "repeatQuiz": "Repeat Quiz",
+      "timeOff": "Time Off!",
+      "questionsLabel": "Questions",
+      "ofLabel": "Of",
+      "resultIconAlt": "Result icon"
+    },
+    "questions": [
+      {
+        "question": "What are the House Stark words?",
+        "answer": "Winter is Coming",
+        "options": [
+          "Ours is the Fury",
+          "Growing Strong",
+          "Winter is Coming",
+          "Fire and Blood"
+        ]
+      },
+      {
+        "question": "What House replaced Targaryens as rulers of Westeros?",
+        "answer": "House Baratheon",
+        "options": [
+          "House Lannister",
+          "House Baratheon",
+          "House Stark",
+          "House Tyrell"
+        ]
+      },
+      {
+        "question": "Who is the Lord of Westerlands?",
+        "answer": "Tywin Lannister",
+        "options": [
+          "Tywin Lannister",
+          "Jaime Lannister",
+          "Keevan Lannister",
+          "Tyrion Lannister"
+        ]
+      },
+      {
+        "question": "Name the last Targaryen king?",
+        "answer": "Aerys II",
+        "options": ["Maekar I", "Daeron II", "Aegon V", "Aerys II"]
+      },
+      {
+        "question": "What House rules the Vale?",
+        "answer": "House Arryn",
+        "options": [
+          "House Martell",
+          "House Arryn",
+          "House Stark",
+          "House Tully"
+        ]
+      },
+      {
+        "question": "How bastards at Dorne are called?",
+        "answer": "Sand",
+        "options": ["Stone", "Snow", "Storm", "Sand"]
+      },
+      {
+        "question": "What is the animal depicted on the coat of arms of the House Baratheon?",
+        "answer": "Stag",
+        "options": ["Stag", "Direwolf", "Craken", "Rose"]
+      },
+      {
+        "question": "Which castle is home for the House Tyrell?",
+        "answer": "Highgarden",
+        "options": ["Winterfell", "Riverrun", "Highgarden", "Casterly Rock"]
+      },
+      {
+        "question": "Which kingdom is the largest in Westeros?",
+        "answer": "The North",
+        "options": ["The Reach", "The Westerlands", "The Vale", "The North"]
+      },
+      {
+        "question": "How House Stark Valyrian blade is called?",
+        "answer": "Ice",
+        "options": ["Ice", "Widow's whip", "Oathkeeper", "Dark Sister"]
+      },
+      {
+        "question": "Who owns the Dragonstone?",
+        "answer": "Stannis Baratheon",
+        "options": [
+          "Baelon Greyjoy",
+          "Daenerys Targaryen",
+          "Stannis Baratheon",
+          "Robb Stark"
+        ]
+      },
+      {
+        "question": "What House was Renly Baratheon strongest vassal?",
+        "answer": "House Tyrell",
+        "options": [
+          "House Martell",
+          "House Lannister",
+          "House Stark",
+          "House Tyrell"
+        ]
+      },
+      {
+        "question": "Who replaced Starks as a rulers of the North?",
+        "answer": "House Bolton",
+        "options": [
+          "House Frey",
+          "House Bolton",
+          "House Karstark",
+          "House Umber"
+        ]
+      },
+      {
+        "question": "How many knights Kingsguard consists of?",
+        "answer": "Seven",
+        "options": ["Five", "Ten", "Seven", "Six"]
+      },
+      {
+        "question": "Who actually got married at the Red Wedding?",
+        "answer": "Edmur Tully",
+        "options": ["Robb Stark", "Edmur Tully", "Roose Bolton", "Walder Frey"]
+      },
+      {
+        "question": "Who is called Kingslayer?",
+        "answer": "Jaime Lannister",
+        "options": [
+          "Eddard Stark",
+          "Robert Baratheon",
+          "Sandor Clegane",
+          "Jaime Lannister"
+        ]
+      },
+      {
+        "question": "Where Arya Stark has gone from Westeros?",
+        "answer": "Braavos",
+        "options": ["Pentos", "Braavos", "Volantis", "Tyrosh"]
+      },
+      {
+        "question": "Which religion is most spread at Westeros?",
+        "answer": "The Faith of the Seven",
+        "options": [
+          "Oldgods",
+          "The Lord of Light",
+          "The Faith of the Seven",
+          "The Drowned God"
+        ]
+      },
+      {
+        "question": "Who was the crown's champion in Tyrion Lannister's trial by combat?",
+        "answer": "Gregor Clegane",
+        "options": [
+          "Gregor Clegane",
+          "Sandor Clegane",
+          "Bronn",
+          "Oberin Martell"
+        ]
+      },
+      {
+        "question": "Gendry is the bastard son of which character?",
+        "answer": "Robert Baratheon",
+        "options": [
+          "Robert Baratheon",
+          "Eddard Stark",
+          "Jon Arryn",
+          "Stannis Baratheon"
+        ]
+      },
+      {
+        "question": "What is the battle between Starks and Boltons known as?",
+        "answer": "Battle of Bastards",
+        "options": [
+          "Battle of Blackwater",
+          "Battle of Winterfell",
+          "Battle of Trident",
+          "Battle of Bastards"
+        ]
+      },
+      {
+        "question": "Members of King's Landing's City Watch are also known as?",
+        "answer": "Gold Cloaks",
+        "options": ["Gold Swords", "Gold Cloaks", "Kingsguard", "Night's Watch"]
+      },
+      {
+        "question": "What is the largest castle in Westeros?",
+        "answer": "Harrenhall",
+        "options": ["Riverrun", "Casterly Rock", "Harrenhall", "Hightower"]
+      },
+      {
+        "question": "Where live decendants of Rhoynars?",
+        "answer": "The Dorne",
+        "options": ["The Dorne", "The North", "The Reach", "The Iron Islands"]
+      },
+      {
+        "question": "Who is the rightfull heir of the Iron Throne?",
+        "answer": "Jon Snow",
+        "options": [
+          "Daenerys Targaryen",
+          "Stannis Baratheon",
+          "Tommen Baratheon",
+          "Jon Snow"
+        ]
+      },
+      {
+        "question": "Who killed the Mad King, Aerys II?",
+        "answer": "Jaime Lannister",
+        "options": [
+          "Tywin Lannister",
+          "Jaime Lannister",
+          "Ned Stark",
+          "Robert Baratheon"
+        ]
+      },
+      {
+        "question": "What is Arya Stark's sword called?",
+        "answer": "Needle",
+        "options": ["Oathkeeper", "Longclaw", "Needle", "Ice"]
+      },
+      {
+        "question": "Who is known as the Mother of Dragons?",
+        "answer": "Daenerys Targaryen",
+        "options": [
+          "Cersei Lannister",
+          "Sansa Stark",
+          "Margaery Tyrell",
+          "Daenerys Targaryen"
+        ]
+      },
+      {
+        "question": "What is the capital of the Seven Kingdoms?",
+        "answer": "King's Landing",
+        "options": ["Winterfell", "Riverrun", "King's Landing", "Oldtown"]
+      },
+      {
+        "question": "Which House is known for its motto 'Ours is the Fury'?",
+        "answer": "House Baratheon",
+        "options": [
+          "House Lannister",
+          "House Stark",
+          "House Baratheon",
+          "House Greyjoy"
+        ]
+      },
+      {
+        "question": "Who is known as the Hound?",
+        "answer": "Sandor Clegane",
+        "options": [
+          "Gregor Clegane",
+          "Sandor Clegane",
+          "Jorah Mormont",
+          "Theon Greyjoy"
+        ]
+      },
+      {
+        "question": "What is the name of Jon Snow's direwolf?",
+        "answer": "Ghost",
+        "options": ["Ghost", "Nymeria", "Summer", "Shaggydog"]
+      },
+      {
+        "question": "Who founded House Stark?",
+        "answer": "Brandon Stark",
+        "options": [
+          "Brandon Stark",
+          "Eddard Stark",
+          "Rickard Stark",
+          "Benjen Stark"
+        ]
+      },
+      {
+        "question": "Which House has a lion as its sigil?",
+        "answer": "House Lannister",
+        "options": [
+          "House Lannister",
+          "House Stark",
+          "House Baratheon",
+          "House Martell"
+        ]
+      },
+      {
+        "question": "Who is the Hand of the King to Robert Baratheon?",
+        "answer": "Eddard Stark",
+        "options": [
+          "Tyrion Lannister",
+          "Eddard Stark",
+          "Jaime Lannister",
+          "Varys"
+        ]
+      },
+      {
+        "question": "What is the name of the continent where most of Game of Thrones takes place?",
+        "answer": "Westeros",
+        "options": ["Essos", "Westeros", "Sothoryos", "Ulthos"]
+      },
+      {
+        "question": "Which House rules Dorne?",
+        "answer": "House Martell",
+        "options": [
+          "House Martell",
+          "House Tyrell",
+          "House Arryn",
+          "House Tully"
+        ]
+      },
+      {
+        "question": "Who is called the Red Woman?",
+        "answer": "Melisandre",
+        "options": [
+          "Melisandre",
+          "Cersei Lannister",
+          "Daenerys Targaryen",
+          "Arya Stark"
+        ]
+      }
+    ]
+  },
+  "ua": {
+    "ui": {
+      "languageLabel": "Мова",
+      "languageEn": "EN",
+      "languageUa": "UA",
+      "startTitle": "Вікторина Гри престолів",
+      "startButton": "Ніч насувається, і починається моя вікторина...",
+      "startDesc": "Натисніть цю кнопку, щоб почати вікторину Гри престолів.",
+      "rulesTitle": "Правила вікторини",
+      "rules": [
+        "На кожне питання є лише 15 секунд",
+        "Після вибору відповіді змінити її не можна",
+        "Після завершення часу вибір відповідей недоступний",
+        "Під час гри не можна виходити з вікторини",
+        "Бали нараховуються за правильні відповіді"
+      ],
+      "exit": "Вийти",
+      "continue": "Продовжити",
+      "quizTitle": "Вікторина Гри престолів",
+      "timeLeft": "Залишилось часу",
+      "secondsRemaining": "Залишилось секунд",
+      "answerOptions": "Варіанти відповіді",
+      "nextQuestion": "Наступне питання",
+      "showResults": "Показати результати",
+      "resultTitle": "Вікторина завершена",
+      "scorePrefix": "Ви отримали",
+      "scoreOutOf": "з",
+      "scoreSuffixHigh": "Довели, що ви справжній спадкоємець Залізного трону!",
+      "scoreSuffixMid": "Гідні бути лордом Великого Дому.",
+      "scoreSuffixLow": "Вас відправляють до Нічної варти.",
+      "repeatQuiz": "Повторити вікторину",
+      "timeOff": "Час вийшов!",
+      "questionsLabel": "питань",
+      "ofLabel": "З",
+      "resultIconAlt": "Іконка результату"
+    },
+    "questions": [
+      {
+        "question": "Які слова дому Старків?",
+        "answer": "Зима близько",
+        "options": [
+          "Нам лють",
+          "Ростемо сильнішими",
+          "Зима близько",
+          "Вогонь і кров"
+        ]
+      },
+      {
+        "question": "Який дім замінив Таргарієнів як правителів Вестеросу?",
+        "answer": "Дім Баратеонів",
+        "options": [
+          "Дім Ланністерів",
+          "Дім Баратеонів",
+          "Дім Старків",
+          "Дім Тиреллів"
+        ]
+      },
+      {
+        "question": "Хто є лордом Західних земель?",
+        "answer": "Тайвін Ланністер",
+        "options": [
+          "Тайвін Ланністер",
+          "Джеймі Ланністер",
+          "Ківан Ланністер",
+          "Тіріон Ланністер"
+        ]
+      },
+      {
+        "question": "Назвіть останнього короля дому Таргарієн?",
+        "answer": "Ейріс II",
+        "options": ["Мейкар I", "Дейрон II", "Ейгон V", "Ейріс II"]
+      },
+      {
+        "question": "Який дім править Долиною?",
+        "answer": "Дім Арренів",
+        "options": ["Дім Мартеллів", "Дім Арренів", "Дім Старків", "Дім Таллі"]
+      },
+      {
+        "question": "Як називають бастардів у Дорні?",
+        "answer": "Сенд",
+        "options": ["Стоун", "Сноу", "Шторм", "Сенд"]
+      },
+      {
+        "question": "Яка тварина зображена на гербі дому Баратеонів?",
+        "answer": "Олень",
+        "options": ["Олень", "Лютововк", "Кракен", "Троянда"]
+      },
+      {
+        "question": "Який замок є домом дому Тиреллів?",
+        "answer": "Хайгарден",
+        "options": ["Вінтерфелл", "Ріверран", "Хайгарден", "Кастерлі Рок"]
+      },
+      {
+        "question": "Яке королівство найбільше у Вестеросі?",
+        "answer": "Північ",
+        "options": ["Простор", "Західні землі", "Долина", "Північ"]
+      },
+      {
+        "question": "Як називається валірійський меч дому Старків?",
+        "answer": "Лід",
+        "options": ["Лід", "Вдовиний плач", "Вірний клятві", "Темна Сестра"]
+      },
+      {
+        "question": "Хто володіє Драконовим Каменем?",
+        "answer": "Станніс Баратеон",
+        "options": [
+          "Бейлон Грейджой",
+          "Дейнеріс Таргарієн",
+          "Станніс Баратеон",
+          "Робб Старк"
+        ]
+      },
+      {
+        "question": "Який дім був найсильнішим васалом Ренлі Баратеона?",
+        "answer": "Дім Тиреллів",
+        "options": [
+          "Дім Мартеллів",
+          "Дім Ланністерів",
+          "Дім Старків",
+          "Дім Тиреллів"
+        ]
+      },
+      {
+        "question": "Хто замінив Старків як правителів Півночі?",
+        "answer": "Дім Болтонів",
+        "options": [
+          "Дім Фреїв",
+          "Дім Болтонів",
+          "Дім Карстарків",
+          "Дім Амберів"
+        ]
+      },
+      {
+        "question": "Скільки лицарів у Королівській Гвардії?",
+        "answer": "Сім",
+        "options": ["П'ять", "Десять", "Сім", "Шість"]
+      },
+      {
+        "question": "Хто насправді одружився на Червоному весіллі?",
+        "answer": "Едмур Таллі",
+        "options": ["Робб Старк", "Едмур Таллі", "Русе Болтон", "Уолдер Фрей"]
+      },
+      {
+        "question": "Кого називають Царевбивцею?",
+        "answer": "Джеймі Ланністер",
+        "options": [
+          "Еддард Старк",
+          "Роберт Баратеон",
+          "Сандор Кліган",
+          "Джеймі Ланністер"
+        ]
+      },
+      {
+        "question": "Куди Арія Старк вирушила з Вестеросу?",
+        "answer": "Браавос",
+        "options": ["Пентос", "Браавос", "Волантіс", "Тирош"]
+      },
+      {
+        "question": "Яка релігія найбільш поширена у Вестеросі?",
+        "answer": "Віра в Сімох",
+        "options": [
+          "Старі боги",
+          "Володар світла",
+          "Віра в Сімох",
+          "Утоплений бог"
+        ]
+      },
+      {
+        "question": "Хто був чемпіоном корони у випробуванні боєм Тіріона Ланністера?",
+        "answer": "Грегор Кліган",
+        "options": ["Грегор Кліган", "Сандор Кліган", "Бронн", "Оберін Мартелл"]
+      },
+      {
+        "question": "Джендрі — бастард якого персонажа?",
+        "answer": "Роберт Баратеон",
+        "options": [
+          "Роберт Баратеон",
+          "Еддард Старк",
+          "Джон Аррен",
+          "Станніс Баратеон"
+        ]
+      },
+      {
+        "question": "Як називається битва між Старками та Болтонами?",
+        "answer": "Битва бастардів",
+        "options": [
+          "Битва на Чорноводній",
+          "Битва за Вінтерфелл",
+          "Битва на Тризубці",
+          "Битва бастардів"
+        ]
+      },
+      {
+        "question": "Як ще називають міську варту Королівської Гавані?",
+        "answer": "Золоті плащі",
+        "options": [
+          "Золоті мечі",
+          "Золоті плащі",
+          "Королівська гвардія",
+          "Нічна варта"
+        ]
+      },
+      {
+        "question": "Який найбільший замок у Вестеросі?",
+        "answer": "Харренхол",
+        "options": ["Ріверран", "Кастерлі Рок", "Харренхол", "Хайтавер"]
+      },
+      {
+        "question": "Де живуть нащадки ройнарів?",
+        "answer": "Дорн",
+        "options": ["Дорн", "Північ", "Простор", "Залізні острови"]
+      },
+      {
+        "question": "Хто є законним спадкоємцем Залізного трону?",
+        "answer": "Джон Сноу",
+        "options": [
+          "Дейнеріс Таргарієн",
+          "Станніс Баратеон",
+          "Томмен Баратеон",
+          "Джон Сноу"
+        ]
+      },
+      {
+        "question": "Хто вбив Шаленого Короля Ейріса II?",
+        "answer": "Джеймі Ланністер",
+        "options": [
+          "Тайвін Ланністер",
+          "Джеймі Ланністер",
+          "Нед Старк",
+          "Роберт Баратеон"
+        ]
+      },
+      {
+        "question": "Як називається меч Арії Старк?",
+        "answer": "Голка",
+        "options": ["Клятвотримач", "Довгий Кіготь", "Голка", "Лід"]
+      },
+      {
+        "question": "Хто відомий як Мати Драконів?",
+        "answer": "Дейнеріс Таргарієн",
+        "options": [
+          "Серсея Ланністер",
+          "Санса Старк",
+          "Маргері Тирелл",
+          "Дейнеріс Таргарієн"
+        ]
+      },
+      {
+        "question": "Яка столиця Семи Королівств?",
+        "answer": "Королівська Гавань",
+        "options": ["Вінтерфелл", "Ріверран", "Королівська Гавань", "Олдтаун"]
+      },
+      {
+        "question": "Який дім має девіз «Нам лють»?",
+        "answer": "Дім Баратеонів",
+        "options": [
+          "Дім Ланністерів",
+          "Дім Старків",
+          "Дім Баратеонів",
+          "Дім Грейджоїв"
+        ]
+      },
+      {
+        "question": "Хто відомий як Пес?",
+        "answer": "Сандор Кліган",
+        "options": [
+          "Грегор Кліган",
+          "Сандор Кліган",
+          "Джорах Мормонт",
+          "Теон Грейджой"
+        ]
+      },
+      {
+        "question": "Як звуть лютововка Джона Сноу?",
+        "answer": "Привид",
+        "options": ["Привид", "Німерія", "Літо", "Лохматий Песик"]
+      },
+      {
+        "question": "Хто заснував дім Старків?",
+        "answer": "Брандон Старк",
+        "options": [
+          "Брандон Старк",
+          "Еддард Старк",
+          "Рікард Старк",
+          "Бенджен Старк"
+        ]
+      },
+      {
+        "question": "Який дім має лева на гербі?",
+        "answer": "Дім Ланністерів",
+        "options": [
+          "Дім Ланністерів",
+          "Дім Старків",
+          "Дім Баратеонів",
+          "Дім Мартеллів"
+        ]
+      },
+      {
+        "question": "Хто був Десницею короля Роберта Баратеона?",
+        "answer": "Еддард Старк",
+        "options": [
+          "Тіріон Ланністер",
+          "Еддард Старк",
+          "Джеймі Ланністер",
+          "Варис"
+        ]
+      },
+      {
+        "question": "Як називається континент, де відбувається більшість подій Гри престолів?",
+        "answer": "Вестерос",
+        "options": ["Ессос", "Вестерос", "Соторіос", "Ультос"]
+      },
+      {
+        "question": "Який дім править Дорном?",
+        "answer": "Дім Мартеллів",
+        "options": ["Дім Мартеллів", "Дім Тиреллів", "Дім Арренів", "Дім Таллі"]
+      },
+      {
+        "question": "Кого називають Червоною Жінкою?",
+        "answer": "Мелісандра",
+        "options": [
+          "Мелісандра",
+          "Серсея Ланністер",
+          "Дейнеріс Таргарієн",
+          "Арія Старк"
+        ]
+      }
+    ]
+  }
+}
