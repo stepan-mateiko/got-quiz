@@ -20,6 +20,7 @@ const languageButtons = document.querySelectorAll(".lang_btn");
 const resultBox = document.querySelector(".result_box");
 const restartQuizBtn = resultBox.querySelector(".buttons .restart");
 const quitQuizBtn = resultBox.querySelector(".buttons .quit");
+const { pickQuestions, getResultTier } = QuizLogic;
 
 // QUIZ STATE
 let currentQuestion = 0;
@@ -82,16 +83,6 @@ restartQuizBtn.addEventListener("click", restartQuiz);
 quitQuizBtn.addEventListener("click", () => window.location.reload());
 
 // FUNCTIONS
-
-// Shuffle array using Fisher-Yates
-function shuffleArray(array) {
-  let arr = array.slice();
-  for (let i = arr.length - 1; i > 0; i--) {
-    let j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
-  }
-  return arr;
-}
 
 startBtn.setAttribute("disabled", "true");
 initI18n();
@@ -164,10 +155,11 @@ function showResultBox() {
   let message = "";
   let imgSrc = "img/crow.jpg";
 
-  if (userScore > 9) {
+  const tier = getResultTier(userScore, 12);
+  if (tier === "high") {
     message = `${getUiText("scorePrefix")} <span>${userScore}</span> ${getUiText("scoreOutOf")} <span>12</span>. <br> ${getUiText("scoreSuffixHigh")}`;
     imgSrc = "img/crown.jpg";
-  } else if (userScore > 5) {
+  } else if (tier === "mid") {
     message = `${getUiText("scorePrefix")} <span>${userScore}</span> ${getUiText("scoreOutOf")} <span>12</span>. <br> ${getUiText("scoreSuffixMid")}`;
     imgSrc = "img/lannister.jpg";
   } else {
@@ -248,7 +240,7 @@ function restartQuiz() {
   userScore = 0;
   timeValue = 15;
   widthValue = 0;
-  quizQuestions = shuffleArray(i18nData[currentLang].questions).slice(0, 12);
+  quizQuestions = pickQuestions(i18nData[currentLang].questions, 12);
 
   showQuestion(currentQuestion);
   updateQuestionCounter(questionNumber);
@@ -329,7 +321,7 @@ function applyLanguage(lang, initialLoad) {
     resetToStartScreen();
   }
 
-  quizQuestions = shuffleArray(i18nData[currentLang].questions).slice(0, 12);
+  quizQuestions = pickQuestions(i18nData[currentLang].questions, 12);
 }
 
 function resetToStartScreen() {
