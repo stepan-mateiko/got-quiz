@@ -1,47 +1,31 @@
 # Game of Thrones Quiz
 
-A web-based quiz game that tests your knowledge of the *Game of Thrones* universe. Players answer multiple-choice questions with a time limit, and results are displayed at the end of the quiz.
+A web-based quiz game that tests your knowledge of the Game of Thrones universe. Players answer multiple-choice questions with a time limit, and results are displayed at the end of the quiz.
+
+Live site: https://got-quiz-xi.vercel.app/
 
 ---
 
 ## Features
 
-- **Multiple-choice quiz:** Answer 12 questions per session.
-- **Randomized questions:** Each quiz session shows 12 random questions from a larger question pool.
-- **Timer:** Each question has a countdown timer (15 seconds).
-- **Interactive feedback:** Correct/incorrect answers are highlighted immediately.
-- **Results screen:** Displays your score with themed messages and images.
-- **Responsive design:** Works on desktop and mobile devices.
-- **Accessible:** Includes ARIA attributes and keyboard navigation.
-
----
-
-## Demo
-
-<img width="1262" height="718" alt="image" src="https://github.com/user-attachments/assets/b1ba1922-4587-4396-9a19-b24b4ef05748" />
-
+- Multiple-choice quiz (12 questions per session)
+- Randomized questions from a larger pool
+- Timer (15 seconds per question)
+- Immediate feedback for correct and incorrect answers
+- Results screen with themed messages and images
+- Responsive design for desktop and mobile
+- Accessibility: ARIA attributes, keyboard navigation, focus management
+- Language switcher: English and Ukrainian
 
 ---
 
 ## Technologies Used
 
-- **HTML5**
-- **CSS3**
-- **JavaScript (ES6+)**
-- **Google Fonts:** Berkshire Swash, Fondamento, Rubik, Aclonica
-- **Font Awesome:** For check/cross icons
-
----
-
-## Installation
-
-1. Clone this repository:
-
-```bash
-git clone https://github.com/yourusername/got-quiz.git
-````
-
-2. Open `index.html` in your browser.
+- HTML5
+- CSS3
+- JavaScript (ES6+)
+- Google Fonts: Noto Sans, Noto Serif
+- Font Awesome: check/cross icons
 
 ---
 
@@ -51,63 +35,81 @@ git clone https://github.com/yourusername/got-quiz.git
 got-quiz/
 ├─ index.html
 ├─ styles.css
+├─ robots.txt
+├─ sitemap.xml
 ├─ js/
-│  ├─ questions.js
+│  ├─ i18n.json
+│  ├─ quiz-logic.js
 │  └─ script.js
+├─ tests/
+│  └─ quiz-logic.test.js
 ├─ img/
 │  ├─ 002.jpg
+│  ├─ 1048346-game-of-thrones.jpg
 │  ├─ crown.jpg
 │  ├─ lannister.jpg
-│  └─ crow.jpg
+│  ├─ crow.jpg
+│  └─ watch.jpg
 └─ README.md
 ```
 
 ---
 
-## Usage
+## Installation
 
-1. Click **"Start Quiz"** to begin.
-2. Read the rules in the info box and click **Continue**.
-3. Answer the multiple-choice questions within the time limit.
-4. Click **Next Question** to proceed.
-5. View your score at the end and either **restart** or **quit** the quiz.
+1. Clone this repository:
+
+```bash
+git clone https://github.com/yourusername/got-quiz.git
+```
+
+2. Open `index.html` in your browser.
 
 ---
 
-## Accessibility Features
+## Usage
 
-* ARIA attributes for live regions and dialog roles.
-* Keyboard navigation (Tab + Enter/Space) supported for options.
-* Screenreader-friendly structure.
+1. Click Start to begin the quiz.
+2. Read the rules and click Continue.
+3. Answer each question within the time limit.
+4. Click Next Question to proceed.
+5. View your score and restart or exit.
+
+---
+
+## Language Support
+
+Translations and questions live in `js/i18n.json`. The app loads the selected language from local storage or defaults to the browser language.
+
+---
+
+## Tests
+
+Run unit-style tests for quiz logic:
+
+```bash
+npm test
+```
 
 ---
 
 ## Customization
 
-* **Questions:** Add, remove, or edit questions in `js/questions.js`.
-* **Number of questions per quiz:** Change the number in `script.js` where random questions are selected.
-* **Timer duration:** Adjust `timeValue` in `script.js`.
-* **Styling:** Modify `styles.css` to change theme, fonts, or layout.
+- Questions and translations: `js/i18n.json`
+- Number of questions per session: update the count in `js/script.js`
+- Timer duration: update `timeValue` in `js/script.js`
+- Styling and theme: `styles.css`
 
 ---
 
 ## License
 
-This project is open-source and available under the [MIT License](LICENSE).
+This project is open-source and available under the MIT License.
 
 ---
 
 ## Credits
 
-* Game of Thrones content © George R.R. Martin
-* Fonts: [Google Fonts](https://fonts.google.com/)
-* Icons: [Font Awesome](https://fontawesome.com/)
-
-```
-
----
-
-If you want, I can also **add a small “how to generate 12 random questions” section in the README** so it’s fully documented for future developers.  
-
-Do you want me to do that?
-```
+- Game of Thrones content © George R.R. Martin
+- Fonts: Google Fonts
+- Icons: Font Awesome
