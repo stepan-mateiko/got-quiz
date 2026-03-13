@@ -60,7 +60,7 @@ got-quiz/
 1. Clone this repository:
 
 ```bash
-git clone https://github.com/yourusername/got-quiz.git
+git clone https://github.com/stepan-mateiko/got-quiz.git
 ```
 
 2. Open `index.html` in your browser.
